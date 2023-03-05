@@ -1,0 +1,142 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <cmath>
+#include <windows.h>
+
+#include "Header.h"
+
+void loading() {
+
+    int  x = 0;
+
+    do {
+        std::string load = "Generating Solution";
+        std::string dot = " .";
+        int n = 3;
+
+        for (int i = 0; i <= n; i++) {
+
+            system("cls");
+            std::cout << "\v\v\v\v\v\v\v\v\v\v" << "\t\t\t\t\t\t" << load;
+            Sleep(1 * 1000);
+            load += dot;
+
+        }
+
+        x += 1;
+
+    } while (x != 2);
+
+    system("cls");
+    std::cout << "\v\v\v\v\v\v\v\v\v\v\v" << "\t\t\t\t\t\t THANK YOU FOR WAITING!" << std::endl;
+    Sleep(3 * 1000);
+    system("cls");
+
+}
+
+struct Variable
+{
+
+    std::string kString = "9e9 N.m2/c2";
+    double kInt = 9e9;
+    double ToMakeNegative = -1;
+    std::string Option;
+    std::string spaces;
+
+} var;
+
+class Distance {
+
+public:
+    std::string SFe, Sq1, Sq2;
+    double Fe, r, q1, q2;
+    double MultiplyTheTop, Divide;
+
+void Title()
+    {
+        system("cls");
+        std::cout << "\v\v\v";
+        std::cout << "\t\t\t\t\t\t\tDISTANCE" << std::endl;
+        std::cout << std::endl;
+    }
+
+    void Disclaimer1()
+    {
+        std::cout << "\t\tDISCLAIMER: \v\t\t\tIn inputing the value do not put their property i.e N(Force), m(Meter),\v\t\t c(Magnitude of Force). ";
+        std::cout << "Only put the quantity and if the given have x10 raise to\v\t\t something. Change x10 to -e- and beside it's raise number." << std::endl;
+        std::cout << std::endl;
+        std::cout << "\t\tExample: Given 12.3x10 raise to 6 " << std::endl;
+        std::cout << "\t\tTo input the value: 3e6" << std::endl;
+        std::cout << std::endl;
+        std::cout << "\t\tPress Enter to Continue: ";
+        std::getline(std::cin, var.spaces);
+
+    }
+    void InputValue()
+    {
+        std::cout << "\t\t Electrostatic Force (Fe): ";
+        std::cin >> Fe;
+        std::cout << "\t\t Magnitude of Force (q1): ";
+        std::cin >> q1;
+        std::cout << "\t\t Magnitude of Force (q2): ";
+        std::cin >> q2;
+    }
+    void PassTheValue() {
+
+        SFe = std::to_string(Fe);
+        Sq1 = std::to_string(q1);
+        Sq2 = std::to_string(q2);
+
+    }
+
+    void Solution()
+    {
+        MultiplyTheTop = (Fe * q1) * q2;
+        Divide = MultiplyTheTop / var.kInt;
+        r = sqrt(Divide);
+
+        if (r < 0) {
+            r *= var.ToMakeNegative;
+        }
+    }
+    void StepSolution() {
+
+        std::cout << "\tSOLUTIONS" << std::endl;
+        std::cout << std::endl;
+        std::cout << "\t\tGIVEN: " << std::endl;
+        std::cout << "\t\t\t\tCoulombs Constant (K)     : " << var.kString << std::endl;
+        std::cout << "\t\t\t\tElectrostatic Force (Fe)  : " << Fe << " N" << std::endl;
+        std::cout << "\t\t\t\tMagnitude of Force (q1)   : " << q1 << " c" << std::endl;
+        std::cout << "\t\t\t\tMagnitude of Force (q2)   : " << q2 << " c" << std::endl;
+
+
+        Sleep(5 * 1000);
+
+        std::cout << std::endl;
+        std::cout << "\t\t\t\t\t\tDistance (r) = " << r << " m." << std::endl;
+
+        // make an solution for tomorrow
+
+    }
+    
+};
+
+int main ()
+    {
+
+    Distance D;
+
+    D.Title();
+    D.Disclaimer1();
+    D.Title();
+    D.InputValue();
+    D.PassTheValue();
+    loading();
+    D.Solution();
+    D.Title();
+    D.StepSolution();
+	
+    return 0;
+
+     }
