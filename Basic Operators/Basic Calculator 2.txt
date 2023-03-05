@@ -1,0 +1,418 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <stdlib.h>
+
+struct Variable{
+
+    std::string space;
+
+}var;
+
+class BasicCalculator {
+
+public:
+    // store the value string
+    std::string Value = "";
+    std::string AddingTheValue1 = "";
+    std::string AddingTheValue2 = "";
+
+    // converting the AddingTheValue1 to intigers(num1)
+    // converting the AddingTheValue2 to intigers(num2)
+    // another part where loop to convert the value of AddingTheValue1 to intigers(num3)
+    double num1, num2, num3;
+
+    // get the size of string to be process
+    int size;
+    // the variable for answer
+    double Answer = 0;
+    // variable for counting
+    int count = 0;
+
+
+    void Title() {
+
+        system("cls");
+        std::cout << "\v\v\v";
+        std::cout << "\t\t\t\t\t\tBASIC CALCULATOR" << std::endl;
+        std::cout << std::endl;
+
+    }
+
+
+
+    void Disclaimer() {
+
+        std::cout << "\t\tDISCLAIMER: \v\v\t\t\tIn inputing the value always add a equal sign (=) at the end. The program only " << std::endl;
+        std::cout << "\t\taccept a positive on the first number. If the first number is negative the system will give invalid.";
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << "\t\tExample: Do    :  123+123-213*123= " << std::endl;
+        std::cout << "\t\t         Do not:  -123+123 = ";
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << "\t\t\tAnother disclaimer the This Calculator do not use the rule PEMDAS, it only follows the process " << std::endl;
+        std::cout << "\t\tfrom left to right! But don't worry I'm fixing it.";
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << "\t\tPress Enter to Continue: ";
+        std::getline(std::cin, var.space);
+    }
+
+
+    // Function get the value
+    void InputValue() {
+
+        std::cout << "\t\tValue: ";
+        std::getline(std::cin, Value);
+
+        // get the size of Value
+        size = Value.size();
+
+    }
+
+
+    // this function to get the first answer to the first operator
+    // example Value = 213+432+1234=
+    // in this function in loop to get the answer of 213 + 413 before proceeding to next functionSolution
+    void Loop_For_First_Operator() {
+
+        for (int i = 0; i < size; i++) {
+
+            // in this decision statement if the value[i] == +, -, *, / 
+            // we are going to convert the AddingTheValue1 into Integers
+            // and get the second number by using another loop 
+            // and we solve by using the value[i] operator that we get in decision
+
+
+            if (Value[i] == '+') {
+                // convert first number to integers
+                std::stringstream s1(AddingTheValue1);
+                s1 >> num1;
+                Answer += num1;
+                count++;
+
+                // loop to get the second number
+                for (int i = count; i < size; i++) {
+
+                    // decision where the need to break
+                    // example 213+432+1234
+                    // 213+432+
+                    // the operator on the 432+ the plus
+                    // we break and convert the second value into integers
+                    if (Value[i] == '+' ||
+                        Value[i] == '-' ||
+                        Value[i] == '*' ||
+                        Value[i] == '/' ||
+                        Value[i] == '=')
+                    {
+                        break;
+                    }
+
+                    AddingTheValue2 += Value[i];
+                    count++;
+                }
+
+                // convert the second value to integers
+                // once we done we break to stop the Loop_For_First_Operator function
+                std::stringstream s2(AddingTheValue2);
+                s2 >> num2;
+                Answer += num2;
+                break;
+            }
+
+            else if (Value[i] == '-') {
+
+                // convert first number to integers
+                std::stringstream s1(AddingTheValue1);
+                s1 >> num1;
+                Answer += num1;
+                count++;
+
+                // loop to get the second number
+                for (int i = count; i < size; i++) {
+
+                    // decision where the need to break
+                    // example 213+432+1234
+                    // 213+432+
+                    // the operator on the 432+ the plus
+                    // we break and convert the second value into integers
+                    if (Value[i] == '+' ||
+                        Value[i] == '-' ||
+                        Value[i] == '*' ||
+                        Value[i] == '/' ||
+                        Value[i] == '=')
+                    {
+                        break;
+                    }
+
+                    AddingTheValue2 += Value[i];
+                    count++;
+                }
+
+                // convert the second value to integers
+                // once we done we break to stop the Loop_For_First_Operator function
+                std::stringstream s2(AddingTheValue2);
+                s2 >> num2;
+                Answer -= num2;
+                break;
+            }
+
+            else if (Value[i] == '*') {
+
+                // convert first number to integers
+                std::stringstream s1(AddingTheValue1);
+                s1 >> num1;
+                Answer += num1;
+                count++;
+
+                // loop to get the second number
+                for (int i = count; i < size; i++) {
+
+                    // decision where the need to break
+                    // example 213+432+1234
+                    // 213+432+
+                    // the operator on the 432+ the plus
+                    // we break and convert the second value into integers
+                    if (Value[i] == '+' ||
+                        Value[i] == '-' ||
+                        Value[i] == '*' ||
+                        Value[i] == '/' ||
+                        Value[i] == '=')
+                    {
+                        break;
+                    }
+
+                    AddingTheValue2 += Value[i];
+                    count++;
+                }
+
+                // convert the second value to integers
+                // once we done we break to stop the Loop_For_First_Operator function
+                std::stringstream s2(AddingTheValue2);
+                s2 >> num2;
+                Answer -= num2;
+                break;
+            }
+
+            else if (Value[i] == '/') {
+
+                // convert first number to integers
+                std::stringstream s1(AddingTheValue1);
+                s1 >> num1;
+                Answer += num1;
+                count++;
+
+                // loop to get the second number
+                for (int i = count; i < size; i++) {
+
+                    // decision where the need to break
+                    // example 213+432+1234
+                    // 213+432+
+                    // the operator on the 432+ the plus
+                    // we break and convert the second value into integers
+                    if (Value[i] == '+' ||
+                        Value[i] == '-' ||
+                        Value[i] == '*' ||
+                        Value[i] == '/' ||
+                        Value[i] == '=')
+                    {
+                        break;
+                    }
+
+                    AddingTheValue2 += Value[i];
+                    count++;
+                }
+
+                // convert the second value to integers
+                // once we done we break to stop the Loop_For_First_Operator function
+                std::stringstream s2(AddingTheValue2);
+                s2 >> num2;
+                Answer /= num2;
+                break;
+            }
+
+
+            // In this code we first get the first number
+            // we add to the Value[i] to AddingTheValue1 and Incrementing the count
+            AddingTheValue1 += Value[i];
+            count++;
+
+        }
+
+    }
+
+ 
+
+    // In this Function we once we done in the first Function
+    // we only use this if we dealing many operator
+    // we can now use this function with do...while loop and for loop to get the rest operator we use
+    // example: 213+123-123-123=
+    // this first function only do the 213+123
+    // the rest we use this second function
+    void Loop_For_Rest_Operator() {
+
+        // this decision use if the count is less than the size of the Value
+        // why example: 123-123-123=
+        // in the first function the count we get is "123-123" is 7 while the size have 12
+        // that means there still operator and number to solve
+        if (count < size) {
+
+            do {
+
+                // we need to change to value of AddingTheValue1 into nothing to use it again and store
+                // every loop occured
+                AddingTheValue1 = "";
+
+                // decision if the Value[count] == '='
+                // that means we need to stop the loop or break
+                if (Value[count] == '=') {
+                    break;
+                }
+
+                // else the operators
+                if (Value[count] == '+') {
+
+                    // we count + 1 because the Value[count] is an operator
+                    // example 123-123-123= : count is 7
+                    // where we count in array 0-12 , while Value[7] is an - so we need to add done
+                    // to start from 1, since Value[8] == 1;
+                    for (int i = count + 1; i < size; i++) {
+
+                        // the same decision from the Loop_For_First_Operator 
+                        if (Value[i] == '+' ||
+                            Value[i] == '-' ||
+                            Value[i] == '*' ||
+                            Value[i] == '/' ||
+                            Value[i] == '=') {
+
+                            std::stringstream s3(AddingTheValue1);
+                            s3 >> num3;
+                            Answer += num3;
+                            count++;
+                            break;
+                        }
+
+                        // storing the value to AddingTheValue1 and Incrementing the count
+                        AddingTheValue1 += Value[i];
+                        count++;
+
+                    }
+                }
+
+                else if (Value[count] == '-') {
+
+                    // we count + 1 because the Value[count] is an operator
+                    // example 123-123-123= : count is 7
+                    // where we count in array 0-12 , while Value[7] is an - so we need to add done
+                    // to start from 1, since Value[8] == 1;
+                    for (int i = count + 1; i < size; i++) {
+
+                        // the same decision from the Loop_For_First_Operator 
+                        if (Value[i] == '+' ||
+                            Value[i] == '-' ||
+                            Value[i] == '*' ||
+                            Value[i] == '/' ||
+                            Value[i] == '=') {
+
+                            std::stringstream s3(AddingTheValue1);
+                            s3 >> num3;
+                            Answer -= num3;
+                            count++;
+                            break;
+                        }
+
+                        // storing the value to AddingTheValue1 and Incrementing the count
+                        AddingTheValue1 += Value[i];
+                        count++;
+
+                    }
+                }
+
+                else if (Value[count] == '*') {
+
+                    // we count + 1 because the Value[count] is an operator
+                    // example 123-123-123= : count is 7
+                    // where we count in array 0-12 , while Value[7] is an - so we need to add done
+                    // to start from 1, since Value[8] == 1;
+                    for (int i = count + 1; i < size; i++) {
+
+                        // the same decision from the Loop_For_First_Operator 
+                        if (Value[i] == '+' ||
+                            Value[i] == '-' ||
+                            Value[i] == '*' ||
+                            Value[i] == '/' ||
+                            Value[i] == '=') {
+
+                            std::stringstream s3(AddingTheValue1);
+                            s3 >> num3;
+                            Answer *= num3;
+                            count++;
+                            break;
+                        }
+
+                        // storing the value to AddingTheValue1 and Incrementing the count
+                        AddingTheValue1 += Value[i];
+                        count++;
+
+                    }
+                }
+                else if (Value[count] == '/') {
+
+                    // we count + 1 because the Value[count] is an operator
+                    // example 123-123-123= : count is 7
+                    // where we count in array 0-12 , while Value[7] is an - so we need to add done
+                    // to start from 1, since Value[8] == 1;
+                    for (int i = count + 1; i < size; i++) {
+
+                        // the same decision from the Loop_For_First_Operator 
+                        if (Value[i] == '+' ||
+                            Value[i] == '-' ||
+                            Value[i] == '*' ||
+                            Value[i] == '/' ||
+                            Value[i] == '=') {
+
+                            std::stringstream s3(AddingTheValue1);
+                            s3 >> num3;
+                            Answer /= num3;
+                            count++;
+                            break;
+                        }
+
+                        // storing the value to AddingTheValue1 and Incrementing the count
+                        AddingTheValue1 += Value[i];
+                        count++;
+
+                    }
+                }
+
+
+                // while check whether the count still less than size 
+                // if yes there is still numbers and operators to solve
+            } while (count < size);
+
+        }
+
+    }
+
+    void answer() {
+        std::cout << Answer << std::endl;
+    }
+
+};
+
+
+int main() {
+
+     BasicCalculator BC;
+
+    BC.Title();
+    BC.Disclaimer();
+    BC.Title();
+    BC.InputValue();
+    BC.Loop_For_First_Operator();
+    BC.Loop_For_Rest_Operator();
+    BC.answer();
+
+    return 0;
+}
