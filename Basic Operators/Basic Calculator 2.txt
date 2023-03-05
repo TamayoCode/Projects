@@ -3,6 +3,18 @@
 #include <sstream>
 #include <stdlib.h>
 
+
+
+
+// This program it an upgrade or my improvement from the Basic Calculator 1
+// This program can now add a many digits and either how many you input
+// example: 123+23-23*2/2-5=
+// But their are some problems in my program
+// When inputing the value, it must always put an = (equal sign ) at the last part
+// And the Code do not follow the PEMDAS but donot worry 
+// I will try to update and make any improvement to my calculator.
+
+
 struct Variable{
 
     std::string space;
@@ -37,26 +49,6 @@ public:
         std::cout << "\t\t\t\t\t\tBASIC CALCULATOR" << std::endl;
         std::cout << std::endl;
 
-    }
-
-
-
-    void Disclaimer() {
-
-        std::cout << "\t\tDISCLAIMER: \v\v\t\t\tIn inputing the value always add a equal sign (=) at the end. The program only " << std::endl;
-        std::cout << "\t\taccept a positive on the first number. If the first number is negative the system will give invalid.";
-        std::cout << std::endl;
-        std::cout << std::endl;
-        std::cout << "\t\tExample: Do    :  123+123-213*123= " << std::endl;
-        std::cout << "\t\t         Do not:  -123+123 = ";
-        std::cout << std::endl;
-        std::cout << std::endl;
-        std::cout << "\t\t\tAnother disclaimer the This Calculator do not use the rule PEMDAS, it only follows the process " << std::endl;
-        std::cout << "\t\tfrom left to right! But don't worry I'm fixing it.";
-        std::cout << std::endl;
-        std::cout << std::endl;
-        std::cout << "\t\tPress Enter to Continue: ";
-        std::getline(std::cin, var.space);
     }
 
 
@@ -404,10 +396,8 @@ public:
 
 int main() {
 
-     BasicCalculator BC;
+    BasicCalculator BC;
 
-    BC.Title();
-    BC.Disclaimer();
     BC.Title();
     BC.InputValue();
     BC.Loop_For_First_Operator();
